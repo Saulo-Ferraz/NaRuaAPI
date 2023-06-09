@@ -28,12 +28,12 @@ public class UserModel {
 
 	public String getUsername() {
 		// TODO Auto-generated method stub
-		return null;
+		return username;
 	}
 
 	public String getEmail() {
 		// TODO Auto-generated method stub
-		return null;
+		return email;
 	}
 
 }
