@@ -15,7 +15,7 @@ public class CommentService {
 	@Autowired
 	private CommentRepository commentRepository;
 	
-	public List<CommentModel> getAll(){
+	public List<CommentModel> getAllComments(){
 		return commentRepository.findAll();
 	}
 	
@@ -24,7 +24,7 @@ public class CommentService {
 		new NotFoundEntityException("Comment Not Found"));
 	}
 	
-	public List<CommentModel> getCommentByText(String text){ // Possible Exception
+	public CommentModel getCommentByText(String text){ // Possible Exception
 		return commentRepository.findByText(text);
 	}
 	
@@ -34,5 +34,12 @@ public class CommentService {
 	
 	public void deleteComment(Long id) {
 		commentRepository.deleteById(id);
+	}
+	
+	public CommentModel updateComment(String text, CommentModel commentModel) {
+		CommentModel existingComment = commentRepository.findByText(text);
+		existingComment.setText(text);
+		
+		return commentRepository.save(existingComment);
 	}
 }

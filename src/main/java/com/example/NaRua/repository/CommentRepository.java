@@ -8,11 +8,11 @@ import java.util.Optional;
 
 @Repository
 public interface CommentRepository extends JpaRepository<CommentModel,Long>{
-	List<CommentModel> findByText(String text);
 	List<CommentModel> findByTextOrderByDateDesc(String text);
 	List<CommentModel> findByTextOrderByDateAsc(String text);
 	List<CommentModel> findAll();
 	Optional<CommentModel> findById(Long id);
+	CommentModel findByText(String text);
 	long countByText(String text);
 	void deleteByText(String text);
 	void deleteById(Long id);

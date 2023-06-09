@@ -18,7 +18,7 @@ public class TagService {
 		new NotFoundEntityException("Tag not Found"));
 	}
 	
-	public List<TagModel> getAll() {
+	public List<TagModel> getAllTags() {
 		return tagRepository.findAll();
 	}
 	
@@ -26,11 +26,18 @@ public class TagService {
 		tagRepository.deleteById(id);
 	}
 	
-	public List<TagModel> getTagByName(String name) { // Possible Exception
+	public TagModel getTagByName(String name) { // Possible Exception
 		return tagRepository.findByName(name);
 	}
 	
 	public TagModel createTag(TagModel tagModel) {
 		return tagRepository.save(tagModel);
+	}
+	
+	public TagModel updateTag(String name, TagModel tagModel) {
+		TagModel existingTag = tagRepository.findByName(name);
+		existingTag.setName(tagModel.getName());
+		
+		return tagRepository.save(existingTag);
 	}
 }

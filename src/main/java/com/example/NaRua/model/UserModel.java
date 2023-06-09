@@ -26,14 +26,4 @@ public class UserModel {
 	@OneToMany(mappedBy = "user")
 	private List<PostModel> posts;
 
-	public String getUsername() {
-		// TODO Auto-generated method stub
-		return username;
-	}
-
-	public String getEmail() {
-		// TODO Auto-generated method stub
-		return email;
-	}
-
 }
