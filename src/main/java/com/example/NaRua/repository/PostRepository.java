@@ -8,10 +8,10 @@ import java.util.Optional;
 
 @Repository
 public interface PostRepository extends JpaRepository<PostModel,Long>{ 
-	List<PostModel> findByText(String text);
 	List<PostModel> findByTextOrderByDateDesc(String text);
 	List<PostModel> findAll();
 	Optional<PostModel> findById(Long id);
+	PostModel findByText(String text);
 	long countByText(String text);
 	void deleteByText(String text);
 	void deleteById(Long id);

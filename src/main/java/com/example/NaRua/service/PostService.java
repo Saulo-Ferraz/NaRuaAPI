@@ -25,10 +25,18 @@ public class PostService {
 		new NotFoundEntityException("Post not Found"));
 	
 	}
-	public List<PostModel> findByText(String text){ // Possible Exception
+	public PostModel findByText(String text){ // Possible Exception
 		return postRepository.findByText(text);
 	}
 	public PostModel createPost(PostModel postModel) {
 		return postRepository.save(postModel);
+	}
+	
+	public PostModel updatePost(String text, PostModel postModel) {
+		PostModel existingPost = postRepository.findByText(text);
+		existingPost.setText(postModel.getText());
+		
+		return postRepository.save(existingPost);
+		
 	}
 }
