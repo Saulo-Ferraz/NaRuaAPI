@@ -20,14 +20,14 @@ public class TagController {
 	@Autowired
 	private TagService tagService;
 	
-	@RequestMapping(value="/createTag", method=RequestMethod.POST)
+	@RequestMapping(value="/create", method=RequestMethod.POST)
 	public ResponseEntity<TagModel> createTag
 			(@RequestBody TagModel tagModel){
 		return ResponseEntity.status(HttpStatus.OK)
 				.body(tagService.createTag(tagModel));
 		}
 	
-	@RequestMapping(value="/listTags", method=RequestMethod.GET)
+	@RequestMapping(value="/list", method=RequestMethod.GET)
 	public ResponseEntity<List<TagModel>> readTag() {
 			return ResponseEntity.status(HttpStatus.OK)
 				.body(tagService.getAllTags());

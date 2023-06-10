@@ -20,14 +20,14 @@ public class PlaylistController {
 	@Autowired
 	private PlaylistService playlistService;
 		
-	@RequestMapping(value="/createPlaylist", method=RequestMethod.POST)
+	@RequestMapping(value="/create", method=RequestMethod.POST)
 	public ResponseEntity<PlaylistModel> createPlaylist
 			   (@RequestBody PlaylistModel playlistModel) {
 		return ResponseEntity.status(HttpStatus.OK).
 				body(playlistService.createPlaylist(playlistModel));
 		}
 		
-	@RequestMapping(value="/listPlaylists", method=RequestMethod.GET)
+	@RequestMapping(value="/list", method=RequestMethod.GET)
 	public ResponseEntity<List<PlaylistModel>> readPlaylist() {
 		return ResponseEntity.status(HttpStatus.OK)
 		.body(playlistService.getAllPlaylist());

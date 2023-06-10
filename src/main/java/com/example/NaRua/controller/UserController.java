@@ -21,14 +21,14 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
-	@RequestMapping(value="/createUser", method=RequestMethod.POST)
+	@RequestMapping(value="/create", method=RequestMethod.POST)
 	public ResponseEntity<UserModel> createUser
 		   (@RequestBody UserModel userModel) {
 		return ResponseEntity.status(HttpStatus.OK).
 				body(userService.createUser(userModel));
 	}
 	
-	@RequestMapping(value="/listUsers", method=RequestMethod.GET)
+	@RequestMapping(value="/list", method=RequestMethod.GET)
 	public ResponseEntity<List<UserModel>> readUser() {
 	return ResponseEntity.status(HttpStatus.OK)
 	.body(userService.getAllUser());

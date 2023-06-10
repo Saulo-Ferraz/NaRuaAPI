@@ -20,14 +20,14 @@ public class CommentController {
 	@Autowired
 	private CommentService commentService;
 	
-	@RequestMapping(value="/createComment", method=RequestMethod.POST)
+	@RequestMapping(value="/create", method=RequestMethod.POST)
 	public ResponseEntity<CommentModel> createComment
 		   	(@RequestBody CommentModel commentModel) {
 		return ResponseEntity.status(HttpStatus.OK)
 				.body(commentService.createComment(commentModel));
 		}
 	
-	@RequestMapping(value="/listComments",method=RequestMethod.GET)
+	@RequestMapping(value="/list",method=RequestMethod.GET)
 	public ResponseEntity<List<CommentModel>> readComment(){
 		return ResponseEntity.status(HttpStatus.OK)
 				.body(commentService.getAllComments());

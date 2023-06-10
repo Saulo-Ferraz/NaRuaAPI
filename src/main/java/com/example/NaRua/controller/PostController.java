@@ -20,14 +20,14 @@ public class PostController {
 	@Autowired
 	private PostService postService;
 	
-	@RequestMapping(value="/createPost", method=RequestMethod.POST)
+	@RequestMapping(value="/create", method=RequestMethod.POST)
 	public ResponseEntity<PostModel> createPost
 			(@RequestBody PostModel postModel) {
 		   return ResponseEntity.status(HttpStatus.OK)
 				   .body(postService.createPost(postModel));
 		}
 	
-	@RequestMapping(value="/listPosts", method=RequestMethod.GET)
+	@RequestMapping(value="/list", method=RequestMethod.GET)
 	public ResponseEntity<List<PostModel>> readPost() {
 		return ResponseEntity.status(HttpStatus.OK)
 				.body(postService.getAllPost());
