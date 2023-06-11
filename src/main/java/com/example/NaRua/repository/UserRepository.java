@@ -9,7 +9,7 @@ import java.util.Optional;
 
 @Repository
 public interface UserRepository extends JpaRepository<UserModel, Long> {
-	
+
 	List<UserModel> findByUsernameAndEmail(String username, String email);
 	List<UserModel> findByUsernameLike(String username);
 	List<UserModel> findByUsernameNotLike(String username);
