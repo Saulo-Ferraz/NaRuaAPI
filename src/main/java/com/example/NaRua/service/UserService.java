@@ -22,7 +22,7 @@ public class UserService {
 
 	public UserModel getUserById(Long id) throws NotFoundEntityException {
 		return userRepository.findById(id)
-				.orElseThrow(() -> new NotFoundEntityException("User not found"));
+				.orElseThrow(() -> new NotFoundEntityException("Usuário não encontrado"));
 	}
 
 	public List<UserModel> gerUserByUsernameAndEmail(String username, String email) {
